@@ -1,0 +1,38 @@
+:root {
+    --bg: #f0f2f5;
+    --primary: #2563eb;
+    --income: #10b981;
+    --expense: #ef4444;
+}
+
+body { background: var(--bg); font-family: 'Poppins', sans-serif; margin: 0; }
+
+.budget-header { background: var(--primary); padding: 40px 20px; border-radius: 0 0 30px 30px; color: white; text-align: center; }
+.balance-card h1 { font-size: 32px; margin: 10px 0; }
+.stats-row { display: flex; justify-content: center; gap: 30px; }
+
+.content { padding: 20px; margin-top: -30px; }
+.action-card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 25px; }
+
+input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1.5px solid #eee; border-radius: 12px; box-sizing: border-box; }
+
+.type-selector { display: flex; gap: 10px; margin-bottom: 15px; }
+.type-btn { flex: 1; padding: 10px; border: none; border-radius: 10px; cursor: pointer; opacity: 0.5; transition: 0.3s; }
+.type-btn.active { opacity: 1; color: white; font-weight: bold; }
+.type-btn.inc.active { background: var(--income); }
+.type-btn.exp.active { background: var(--expense); }
+
+.main-add-btn { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; }
+
+.view { animation: fadeIn 0.4s ease; }
+.hidden { display: none; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.bottom-nav { position: fixed; bottom: 0; width: 100%; height: 75px; background: white; display: flex; justify-content: space-around; align-items: center; border-top: 1px solid #eee; }
+.nav-item { color: #94a3b8; font-size: 20px; cursor: pointer; transition: 0.3s; padding: 15px; border-radius: 15px; }
+.nav-item.active { color: var(--primary); background: #eff6ff; }
+
+.transaction-item { background: white; padding: 15px; border-radius: 15px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-left: 5px solid #eee; }
+
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1e293b; color: white; padding: 12px 25px; border-radius: 10px; z-index: 1000; transition: 0.4s; }
+.toast.hidden { opacity: 0; pointer-events: none; }

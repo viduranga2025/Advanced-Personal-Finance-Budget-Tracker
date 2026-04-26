@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftSave - Smart Budgeting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="budget-header">
+            <div class="balance-card">
+                <small>Total Balance</small>
+                <h1 id="totalBalance">Rs. 0.00</h1>
+                <div class="stats-row">
+                    <div class="stat"><i class="fa-solid fa-arrow-up"></i> <span id="incVal">0</span></div>
+                    <div class="stat"><i class="fa-solid fa-arrow-down"></i> <span id="expVal">0</span></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <section id="home-view" class="view">
+                <div class="action-card">
+                    <h3>Add New Transaction</h3>
+                    <input type="text" id="desc" placeholder="What did you buy?">
+                    <input type="number" id="amount" placeholder="Amount (Rs.)">
+                    <div class="type-selector">
+                        <button class="type-btn inc active" onclick="setType('income', this)">Income</button>
+                        <button class="type-btn exp" onclick="setType('expense', this)">Expense</button>
+                    </div>
+                    <button class="main-add-btn" onclick="addTransaction()">Add Transaction</button>
+                </div>
+
+                <section class="history">
+                    <div class="section-header">
+                        <h3>Recent Transactions</h3>
+                        <button class="clear-btn" onclick="clearAll()">Clear All</button>
+                    </div>
+                    <div id="transactionList"></div>
+                </section>
+            </section>
+
+            <section id="reports-view" class="view hidden">
+                <div class="action-card">
+                    <h3>Financial Insights</h3>
+                    <p>Spending analysis and charts will appear here.</p>
+                </div>
+            </section>
+
+            <section id="wallet-view" class="view hidden">
+                <div class="action-card">
+                    <h3>My Wallet</h3>
+                    <p>Manage your linked cards and bank accounts.</p>
+                </div>
+            </section>
+
+            <section id="settings-view" class="view hidden">
+                <div class="action-card">
+                    <h3>Settings</h3>
+                    <p>App preferences and profile management.</p>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item active" onclick="navigate('home', this)"><i class="fa-solid fa-house"></i></div>
+            <div class="nav-item" onclick="navigate('reports', this)"><i class="fa-solid fa-chart-pie"></i></div>
+            <div class="nav-item" onclick="navigate('wallet', this)"><i class="fa-solid fa-wallet"></i></div>
+            <div class="nav-item" onclick="navigate('settings', this)"><i class="fa-solid fa-gear"></i></div>
+        </nav>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="script.js"></script>
+</body>
+</html>
